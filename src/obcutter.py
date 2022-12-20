@@ -17,15 +17,17 @@ version = "0.1.0"
 @click.option('--rows', '-r', default=0, help='Number of rows in the merge file, 0 for auto')
 @click.option('--columns', '-c', default=0, help='Number of columns in the merge file, 0 for auto')
 
-def main(operation, bounding_box, width, height, rows, columns):
+def main(operation, width, height, bounding_box, graph, rows, columns):
     # Deals with the command line arguments
     
     print("OBcutter v", version)
     if operation == 'split':
         print("Splitting image into objects")
-        print("Object block -> width: {} pixels, height: {} pixels".format(width, height))
-        print("Bounding box -> {}".format("on" if bounding_box else "off"))
-        split_objects(width, height)
+        print("\tObject block -> width: {} pixels, height: {} pixels".format(width, height))
+        print("\tBounding box -> {}".format("on" if bounding_box else "off"))
+        print("\tGraph -> {}".format("on" if graph else "off"))
+        print("--------------------------------\n")
+        split_objects(width, height, bounding_box, graph)
         
     elif operation == 'merge':
         print("Merging objects into image")
