@@ -79,3 +79,5 @@ This will create a single output file, containing all the objects from the input
 ![Merging](./readme_resources/merging.gif)
 
 *Demonstration of the initial set of images and then the final merged image.*
+
+*The sprites used on these demonstrastions are avaliable at https://cainos.itch.io/pixel-art-top-down-basic*
