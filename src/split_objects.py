@@ -140,7 +140,7 @@ def build_objects(nodes, image_np, width, height, block_width, block_height, spl
         obj.save(splited_folder + str(node["index"]) + ".png")
 
 def clear_output_folder(output_folder):
-    print("OUTPUT FOLDER IS GOING TO BE CLEARED")
+    print("{} FOLDER IS GOING TO BE CLEARED".format(output_folder))
     print("ARE YOU SURE YOU WANT TO CONTINUE? (y/n)")
     if input() == "y":
         for filename in os.listdir(output_folder):
@@ -167,12 +167,8 @@ def split_objects(block_width, block_height, bounding_box, graph):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    # Clear output folder
-
-    code = clear_output_folder(output_folder)
-    print("--------------------------------\n")
-    if code == 1:
-        return
+    
+    
 
     for filename in os.listdir(input_folder):
         if filename.endswith(".png"):
@@ -197,6 +193,12 @@ def split_objects(block_width, block_height, bounding_box, graph):
             splited_folder = output_folder + filename[:-4] + "/"
             if not os.path.exists(splited_folder):
                 os.makedirs(splited_folder)
+            else:
+                # Clear
+                code = clear_output_folder(splited_folder)
+                print("--------------------------------\n")
+                if code == 1:
+                    return
             
             nodes = create_nodes(image_np, block_width, block_height)
             

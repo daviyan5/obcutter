@@ -16,8 +16,9 @@ version = "0.1.0"
 @click.option('--merge', '-m', 'operation',flag_value='merge', help='Merge the files into a single file')
 @click.option('--rows', '-r', default=0, help='Number of rows in the merge file, 0 for auto')
 @click.option('--columns', '-c', default=0, help='Number of columns in the merge file, 0 for auto')
+@click.option('--spacing', '-p', default=1, help='Spacing between the objects in pixels, default 1')
 
-def main(operation, width, height, bounding_box, graph, rows, columns):
+def main(operation, width, height, bounding_box, graph, rows, columns, spacing):
     # Deals with the command line arguments
     
     print("OBcutter v", version)
@@ -31,8 +32,10 @@ def main(operation, width, height, bounding_box, graph, rows, columns):
         
     elif operation == 'merge':
         print("Merging objects into image")
-        print("Merge image -> rows: {}, columns: {}".format(rows if rows > 0 else "auto", columns if columns > 0 else "auto"))
-        merge_objects(rows, columns)
+        print("\tMerge image -> rows: {}, columns: {}".format(rows if rows > 0 else "auto", columns if columns > 0 else "auto"))
+        print("\tSpacing -> {} pixels".format(spacing))
+        print("--------------------------------\n")
+        merge_objects(rows, columns, spacing)
 
     
     
