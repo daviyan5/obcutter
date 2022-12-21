@@ -35,7 +35,7 @@ python obcutter.py [OPTIONS]
 ## Options
 
 ```
-     -s, --split: Split the file into multiple files
+    -s, --split: Split the file into multiple files
     -w, --width INTEGER: Width of the object block to be split in pixels (default is 1)
     -h, --height INTEGER: Height of the object block to be split in pixels (default is 1)
     -b, --bounding-box: Bounds the png image to the bounding box of the pixels
