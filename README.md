@@ -25,7 +25,7 @@ pip install click
 pip install shutil
 ```
 
-Usage
+## Usage
 
 You can use obcutter by running the following command:
 ```
